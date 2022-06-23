@@ -1,103 +1,560 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-     <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
-          rel="stylesheet">
-     <link rel="stylesheet" href="https://erzacanz.github.io/simple/static/css/index.css">
-     <title>Rey sekha</title>
-     <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="RRuLL" />
+  <link href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE4eglstd3jT0onJI5llmxegm38o7dntaQ0A&usqp=CAU" rel="icon" />
+  
+  <title>Komi-San API</title>
+ <link href="./css/styles1.css" rel="stylesheet" type="text/css" />
+  <link href="https://indrijunanda.github.io/RuangAdmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+    type="text/css" />
+  <link href="./css/jsdelivr2.css" rel="stylesheet"
+    type="text/css" />
+
+    
+    
+
+ 
+  <meta property="og:title" content="Android Technology OFC" />
+  <meta property="og:description"
+    content="Tecnología y Mucho Más" />
+  <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE4eglstd3jT0onJI5llmxegm38o7dntaQ0A&usqp=CAU" />
+  <meta property="og:url" content="index.html" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/androidstudio.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
 </head>
 
-<body id="body" class="dark">
-     <!-- <div class="wrapper">
-          <div class="toggle">
-               <input class="toggle-input" type="checkbox" />
-               <div class="toggle-bg"></div>
-               <div class="toggle-switch">
-                    <div class="toggle-switch-figure"></div>
-                    <div class="toggle-switch-figureAlt"></div>
-               </div>
+<body id="page-top">
+<div id="wrapper">
+<ul class="navbar-nav sidebar bg-gray-900 accordion bg-light" id="accordionSidebar"
+      style="color: #000;">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center bg-gray-300"
+        style="color: rgb(144,9,9);">
+      <div class="sidebar-brand-icon">  
+        	
+        </div>
+        <span style="color: #fff;">KOMI-SAN API</span>
+      </a>
+<hr class="sidebar-divider my-0" />
+      <li class="nav-item active">
+        <a class="nav-link">
+<i class="fas fa-hashtag"></i>
+          <span>Panel De Control</span></a>
+      </li>
+      <hr class="sidebar-divider" />
+      <div class="sidebar-heading center">Recursos</div>
+    
+          <li class="nav-item">
+        <a  class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+          aria-expanded="true" aria-controls="collapseBootstrap">
+          <i class="fas fa-fw fa-arrow-down"></i>
+          
+          <span>Descargas</span>
+          
+        </a>
+        <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-black py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Api de descarga</h6>           
+             <a class="collapse-item" href="/api/playmp3?query=op Komi san&apikey=Tu_ApiKey">Play Mp3</a>
+                    <a class="collapse-item" href="api/playvid?quero=edit komi san&apikey=Tu_ApiKey">Play Video</a>                
+               <a class="collapse-item" href="api/audiomeme?quero=yamete&apikey=Tu_ApiKey">Audio Meme</a>
           </div>
-     </div> -->
-     <div class="modal">
-          <img src="https://avatars.githubusercontent.com/u/85196372?s=400&u=8740585aca0a7d17e89d638bdff27060458abe38&v=4" alt="img">
-          <div class="close"></div>
-     </div>
+        </div>
+      </li>
+ 
+      <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSearch" aria-expanded="true"
+            aria-controls="collapseSearch">
+            <i class="fas fa-fw fa-search"></i>
+            <span>Buscador</span>
+          </a>
+          <div id="collapseSearch" class="collapse" aria-labelledby="headingSearch" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Api de busquedas</h6>
+            <a class="collapse-item" href="/api/ddd?quero=73&apikey=Tu_ApiKey">ddd</a>
+              <a class="collapse-item" href="/api/cep1?quero=01034-030&apikey=Tu_ApiKey">cep</a>
+                <a class="collapse-item" href="/api/ip?quero=200.255.122.170&apikey=Tu_ApiKey">IP</a>
+             </div>
+          </div>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGames2" aria-expanded="true" aria-controls="collapseForm">
+            <i class="app-menu__icon fa fa-laptop"></i>
+            <span>Videos & Edits</span>
+        </a>
+        <div id="collapseGames2" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+            <div class="py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Edits</h6>
+             <a class="collapse-item" href="api/saycat?apikey=Tu_ApiKey">Edit Saycat</a>                  
+         </div>
+        </div>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePhotooxy"
+          aria-expanded="true" aria-controls="collapsePhotooxy">
+          <i class="fa fa-anchor" aria-hidden="true"></i>
+          <span>Photoshoot</span>
+        </a>
+        <div id="collapsePhotooxy" class="collapse" aria-labelledby="headingPhotooxy" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Api de photoshoot</h6>
+         <a class="collapse-item" href="/api/photooxy/shadow?apikey=APIKEY&text=Supra">Shadow Text Effect</a>
+            <a class="collapse-item" href="/api/photooxy/romantic?apikey=APIKEY&text=Supra">Romantic Text Effect</a>
+            <a class="collapse-item" href="/api/photooxy/smoke?apikey=APIKEY&text=Supra">Smoke text Effect</a>
+            <a class="collapse-item" href="/api/photooxy/burn-paper?apikey=APIKEY&text=Supra">Burn-paper Text Effect</a>
+            <a class="collapse-item" href="/api/photooxy/naruto?apikey=APIKEY&text=Supra">Naruto Text Effect</a>
+            <a class="collapse-item" href="/api/photooxy/romantic?apikey=APIKEY&text=Supra">Romantic Text Effect</a>
+            <a class="collapse-item" href="/api/photooxy/love-message?apikey=APIKEY&text=Supra">Love-Message Text Effect</a>
+            <a class="collapse-item" href="/api/photooxy/message-under-grass?apikey=APIKEY&text=Supra">Message Under Grass</a>
+            <a class="collapse-item" href="/api/photooxy/glitch?apikey=APIKEY&text=Lhanna&text2=Supra">Glitch Text Effect</a>
+            <a class="collapse-item" href="/api/photooxy/double-heart?apikey=APIKEY&text=Supra">Double Heart</a>
+            <a class="collapse-item" href="/api/photooxy/coffe-cup?apikey=APIKEY&text=Supra">Coffe-cup Text Effect</a>
+            <a class="collapse-item" href="/api/photooxy/love-text?apikey=APIKEY&text=Supra">Love-Text Effect</a>
+            <a class="collapse-item" href="/api/photooxy/butterfly?apikey=APIKEY&text=Supra">Butterfly Text Effect</a>
+          </div>
+        </div>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOthers" aria-expanded="true"
+            aria-controls="collapseOthers">
+            <i class="fas fa-fw fa-leaf"></i>
+            <span>Texto Aleatorio</span>
+          </a>
+          <div id="collapseOthers" class="collapse" aria-labelledby="headingOthers" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Api de texto aleatorio</h6>
+                  <a class="collapse-item" href="api/conselho?apikey=Tu_ApiKey">Frases & Consejos</a>
+            <a class="collapse-item" href="api/romanticafrase?apikey=Tu_ApiKey">Frases Romanticas</a>
+            <a class="collapse-item" href="api/stickera?apikey=Tu_ApiKey">Figuras Aleatorias</a>        
+            </div>
+          </div>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRandom" aria-expanded="true"
+          aria-controls="collapseRandom">
+          <i class="fa fa-camera-retro" aria-hidden="true"></i>
+          <span>Random Imagenes</span>
+        </a>
+        <div id="collapseRandom" class="collapse" aria-labelledby="headingRandom" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">api de Random Img</h6>
+             <a class="collapse-item" href="/randomimg/milf">Milf</a>
+             <a class="collapse-item" href="/randomimg/waifu">Waifu</a>
+            <a class="collapse-item" href="/randomimg/komisan">Komi San</a>
+             <a class="collapse-item" href="/randomimg/husbu">Husbu</a>
+             <a class="collapse-item" href="/randomimg/loli">Loli</a>
+             <a class="collapse-item" href="/randomimg/cosplay">Cosplay</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGames" aria-expanded="true" aria-controls="collapseForm">
+<i class="fas fa-gamepad"></i>
+            <span>Juegos</span>
+        </a>
+        <div id="collapseGames" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+            <div class="py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Api de juegos</h6>
+                   <a class="collapse-item" href="/api/dadu?apikey=Tu_ApiKey">Jugar dado</a>   
+         </div>
+        </div>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseother" aria-expanded="true"
+          aria-controls="collapseother">
+          <i class="fab fa-fw fa-wpforms"></i>
+          <span>Otros</span>
+        </a>
+        <div id="collapseother" class="collapse" aria-labelledby="headingother" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">otras apis</h6>
+       <a class="collapse-item" href="api/attp1?text=supra&apikey=Tu_ApiKey">Attp</a>  
+                 <a class="collapse-item" href="api/attp2?text=supra&apikey=Tu_ApiKey">Attp 2</a>                            
+            <a class="collapse-item" href="api/tradutor?text=hi&apikey=Tu_ApiKey">Traductor</a>
+          </div>
+        </div>
+      </li>
+      <hr class="sidebar-divider" />
+      <div class="version" href="#">Version 3.0</a></div>
+    </ul>
 
-     <div id="container" class="container">
-          <input type="checkbox" name="" id="check">
-          <div class="card">
-               <div class="sidebar" id="sidebar">
-                    <ul>
-                         
-                         <li><a class="active" href="https://github.com/erzacanz">My Bot</a></li>
-                         <li><a class="active" href="https://reysekha-web.eu.org">Website</a></li>
-                         <li><a class="active" href="/docs">Rest Api</a></li>
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
 
-                        
-                    </ul>
-               </div>
-               <div class="header">
-                    <label for="check" class="checkbtn" id="chkbtn">
-                         <div class="hamburger-menu">
-                              <div class="center"></div>
-                         </div>
-                    </label>
-                    <a href="mailto: contact.reysekha@gmail.com" class="mail">
-                         <i class="far fa-envelope"></i>
-                    </a>
-                    <div class="main">
-                         <div class="image">
-                              <div class="hover">
-                                   <i class="fas fa-camera fa-2x"></i>
-                              </div>
-                         </div>
-                         <h3 class="name">Rey Sekha</h3>
-                         <h3 class="sub-name">@_sekhaa</h3>
+ <!-- TopBar -->
+        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top bg-gray-900">
+          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                aria-labelledby="searchDropdown">
+                <form class="navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-1 small" placeholder="Que api deseas buscar?"
+                      aria-label="Search" aria-describedby="basic-addon2" style="border-color: #02bb9f;">
+                    <div class="input-group-append">
+                      <button class="btn bg-gradient-secondary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
                     </div>
-               </div>
-
-               <div class="content">
-                    <div class="left">
-                         <div class="about-container">
-                              <h3 class="title">About</h3>
-                              <p class="text">hi world introduce the name Rey sekha my hobby is watching anime and dialogue in Japanese and I also don't have any skills I can only MANGAN,TURU,NGARIT</p>
-                         </div>
-                         <div class="icons-container">
-                              <a href="https://github.com/inirey" class="icon">
-                                   <i class="fab fa-github"></i>
-                              </a>
-                              <a href="https://instagram.com/_sekhaa" class="icon">
-                                   <i class="fab fa-instagram"></i>
-                              </a>
-                              <a href="https://wa.me/0" class="icon">
-                                   <i class="fab fa-whatsapp"></i>
-                              </a>
+                  </div>
+                </form>
+              </div>
+            </li>
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                               <a class="dropdown-item text-center dropdown-header" 
+                              <h6>Centro De Notificationes 🔔</h6>
                               
-                                                     
-                         </div>
-                         <div class="buttons-wrap">
-                              <div class="follow-wrap">
-                                   <a href="https://github.com/inirey" class="follow">Follow</a>
-                              </div>
-                              <div class="share-wrap">
-                                   <a href="/contact" class="share">Contact</a>
-                              </div>
-                         </div>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
                     </div>
-               </div>
-          </div>
-     </div>
-     <script src="https://erzacanz.github.io/simple/static/js/app.js"></script>
-     
-     <script
-  id="contactform"
-  form_worker_url="https://mjvbzcontactme.tomsmater.workers.dev/"> </script>
-   </body>
+                  </div>
+                  <div>
+                    <div class="small text-gray-900">5 Mayo, 2022</div>
+                    Se Comienza A Producir La Pagina Web</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-900">30 Mayo, 2022</div>
+                    Se solucionan algunos errores en las antiguas versiones del API!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-900">20 Junio, 2022</div>
+                    Se mejora la página de inicio del API!
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-300" href="#">Cerrar</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <span class="badge badge-warning badge-counter">2</span>
+              </a>
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  <center>Centro de mensajes</center>
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="img/man.png" style="max-width: 60px" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div class="font-weight-bold">
+                    <div class="text-truncate">Hola 👋 Bienvenido 🎉 nuestra a Api-Pagina Web!!</div>
+                    <div class="small text-gray-500">Activo</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="img/girl.png" style="max-width: 60px" alt="">
+                    <div class="status-indicator bg-default"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Hola 👋 tu apikey es Komi-San </div>
+                    <div class="small text-gray-500">hace unas horas</div>
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Cerrar</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-tasks fa-fw"></i>
+                <span class="badge badge-success badge-counter">3</span>
+              </a>
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  Información de api :v
+                </h6>
+                <a class="dropdown-item align-items-center" href="#">
+                  <div class="mb-3">
+                    <div class="small text-gray-500">Diseño de interfaz del api
+                      <div class="small float-right"><b>30%</b></div>
+                    </div>
+                    <div class="progress" style="height: 12px;">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </a>
+                <a class="dropdown-item align-items-center" href="#">
+                  <div class="mb-3">
+                    <div class="small text-gray-500">Cantidad de cd del api ocupado
+                      <div class="small float-right"><b>30%</b></div>
+                    </div>
+                    <div class="progress" style="height: 12px;">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 30%" aria-valuenow="30"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </a>
+                <a class="dropdown-item align-items-center" href="#">
+                  <div class="mb-3">
+                    <div class="small text-gray-500">Bot
+                      <div class="small float-right"><b>75%</b></div>
+                    </div>
+                    <div class="progress" style="height: 12px;">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Cerrar</a>
+              </div>
+            </li>
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+               <img class="img-profile rounded-circle"
+                  src="https://i.ibb.co/8NhPCfx/IMG-20220408-214307.jpg"
+                  style="max-width: 100px" />
+                <span class="ml-2 d-none d-lg-inline text-white small"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
 
+          <!-- Modal Logout -->
+          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+             <h5> <center><b>Cerrar Sesión</b></center></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+</div>
+                <div class="modal-body">
+                  <p>Estas seguro que deseas cerrar sesión?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancelar</button>
+                  <a href="login.html" class="btn btn-primary">Salir</a>
+                </div>
+              </div>
+            </div>
+          
+        </div>
+        <!---Container Fluid-->
+        <!-- Topbar -->
+        
+       
+        
+        <div class="container-fluid" id="container-wrapper">
+          <div id="demo" class="alert alert-dark1  alert-dismissible" role="alert">
+            <div id="browser_info"></div>
+            <script>
+              let arrBulan = [
+                "Enero",
+                "Febrero",
+                "Marzo",
+                "Abril",
+                "Mayo",
+                "Junio",
+                "Julio",
+                "Agosto",
+                "Setiembre",
+                "Octubre",
+                "Noviembre",
+                "Diciembre",
+              ];
+              let txt = "";
+              txt +=
+                "<p><b>Navegador Del Api </b>: " +
+                "Microsoft Edge" +
+                "</p>";
+              txt += "<p><b>Nombre Del Navegador </b>: " + "Edge+" + "</p>";
+              txt += "<p><b>Navegador En Linea </b>: " + navigator.onLine + "</p>";
+              txt +=
+                "<p><b>Cookies Activos </b>: " +
+                navigator.cookieEnabled +
+                "</p>";
+              txt += "<p><b>Plataforma </b>: " + navigator.platform + "</p>";
+              txt += "<p><b>Plataforma Del Api </b>: " + "Heroku-Render-Railway-GitHub" +"</p>";
+              txt += "<p><b>Agente De Usuario </b>: " + navigator.userAgent + "</p>";
+              let text_el = document.querySelector("div#browser_info");
+              setInterval(() => {
+                var d = new Date();
+                const jam = d.getHours().toString().padStart(2, 0);
+                const menit = d.getMinutes().toString().padStart(2, 0);
+                const detik = d.getSeconds().toString().padStart(2, 0);
+                const tgl = d.getDate();
+                const bln = d.getMonth();
+                const thn = d.getFullYear();
+                const bulan = arrBulan[bln];
+                text_el.innerHTML =
+                  txt +
+                  "<b>Fecha </b>: " +
+                  jam +
+                  ":" +
+                  menit +
+                  ":" +
+                  detik +
+                  "~" +
+                  tgl +
+                  "-" +
+                  bulan +
+                  "-" +
+                  thn +
+                  "<br>";
+              }, 250);
+            </script>
+          </div>
+          <div class="row">
+<div class="col-xl-12 col-lg-12 col-md-12">
+<div class="card">
+<div class="card-header">
+<h4 class="card-title"><center>BIENVENIDO 👋😄</center></h4>
+</div>
+<div class="card-body text-sm-left font-weight-bold">Hola bienvenido a mi api ☺ usalo de la mejor manera esta api es gratuita y esta dirigida para bots de whatsapp-discord-telegram.</div>
+<div class="card-body text-sm-left font-weight-bold"
+ <h3>APIKEY : <target="_blank" class="a1c" >komi-san</h3></div></div>
+
+<span> <br> </span>
+
+          <footer class="sticky-footer bg-white">
+
+            <div class="container my-auto">
+              
+                <h4 class="card-title"><center>VISITANTES 👁</center></h4>
+                
+               
+</div>
+<br> </span>
+       <center>
+             <h2 class="mb-1" id="totalhit">0</h2>
+             
+                  <div class="card-body text-sm-left font-weight-bold">Total de vistas en la API 🥳🥳</div></center>
+</div></div>
+<span> <br> </span>
+          <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+              
+                <h4 class="card-title"><center>CONTACTAME 👤</center></h4>
+                
+               
+</div>
+<br> </span>
+       
+            
+             
+                  <div class="card-body text-sm-left font-weight-bold">Puedes encontrarme en mis redes sociales se notificara todas las actualizaciones de los bots y de la api.</div>
+<div class="card-body copyright3 text-sm-left font-weight-bold"
+<h4><a href="https://api.whatsapp.com/send/?phone=14243471028&text=Komi-San API" target="_blank">➣ WhatsApp<a></h4></div>
+<div class="card-body copyright3 text-sm-left font-weight-bold"
+<h4><a href="https://github.com/Android-Tec" target="_blank">➣ GitHub</a></h4></div>
+<div class="card-body copyright3 text-sm-left font-weight-bold"
+<h4><a href="https://m.youtube.com/channel/UCC777Eegzmtgs_W7jllXmwQ" target="_blank">➣ YouTube</h4></div>
+<div class="card-body copyright3 text-sm-left font-weight-bold"
+<h4><a href="https://androidtechnology-oficial.blogspot.com/" target="_blank">➣ Blog</a></h4></div></div></div>
+                      
+                      
+                      
+                      
+
+
+
+<script>
+ var xhr = new XMLHttpRequest();
+            var url = 'https://api.countapi.xyz/hit/api-yogipw.herokuapp.co8m';
+            xhr.onloadend = function(){
+           data = JSON.parse(this.responseText);
+document.getElementById("totalhit").textContent = data.value
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+</script>
+
+
+
+                      <br> </span>
+          <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+              <div class="copyright text-center my-auto">
+                <span>Copyright &copy;
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  <b><a href="https://chat.whatsapp.com/D23kwPycP7UEJL95RSY1jI"
+                      target="_blank">Android Technology OFC</a></b>
+                </span>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+    <script src="https://indrijunanda.github.io/RuangAdmin/vendor/jquery/jquery.min.js"></script>
+    <script src="https://indrijunanda.github.io/RuangAdmin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://indrijunanda.github.io/RuangAdmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="https://indrijunanda.github.io/RuangAdmin/js/ruang-admin.min.js"></script>
+  </div>
+</body>
+<audio src="musica2.mp3" autoplay="true"></audio>
 </html>
