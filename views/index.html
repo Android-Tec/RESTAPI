@@ -1,1237 +1,185 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ea">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Komi-San | API</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Favicon -->
-  <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE4eglstd3jT0onJI5llmxegm38o7dntaQ0A&usqp=CAu" type="image/x-icon">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.css">
-  <!-- IonIcons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="adminlte.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="description" content="Mengbadut">
+<meta name="robots" content="archive, follow, imageindex, index, odp, snippet, translate">
+<meta name="author" content="">
+<title>Komi-San API</title>
+<meta property="og:title" name="og:title" content="Komi-San API">
+<meta property="og:url" name="og:url" content="/">
+<meta property="og:image" content="https://telegra.ph/file/526af465108385d922813.jpg" />
+<meta property="og:description" name="og:description" content="Tecnología y Mucho Más">
+<link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+<link rel="shortcut icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE4eglstd3jT0onJI5llmxegm38o7dntaQ0A&usqp=CAu">
+<link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE4eglstd3jT0onJI5llmxegm38o7dntaQ0A&usqp=CAu" type="image/x-icon">
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+<link rel="canonical" href="/">
 </head>
-<!--
-`body` tag options:
+<body>
+<div class="text">
+<div class="status">
+<p>Estado Del Api : <span class="typed-text"></span><span class="cursor typing"></span></p>
 
-  Apply one or more of the following classes to to the body tag
-  to get the desired effect
-
-  * sidebar-collapse
-  * sidebar-mini
--->
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
-  <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animatiohake" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUp5b_5b3SLrwoX4JZj0ZqXGkKF4Zt_sUN-Q&usqp=CAU"  height="175" width="175">
-  </div>
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      
-    </ul>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="¿Que deseas buscar?" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
-
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="data:image/jpeg;base64,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" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title"><b>Komi-San</b>
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Tu ApiKey es Komi-San</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>Hace un momento</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxsQgTz6T_tLVtSUno4h0hDLc7z_73OyxVAA&usqp=CAU" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title"><b>Android Tec</b>
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Hola Bro 😎</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i>hace 1 minuto</p>
-              </div>
-            </div>
-
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">Cerrar</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">6</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">Notificaciones 🔔</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 1 mensaje nuevo
-            <span class="float-right text-muted text-sm">1 minuto</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 2 solicitudes
-            <span class="float-right text-muted text-sm">6 horas</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 reportes
-            <span class="float-right text-muted text-sm">2 horas</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">Cerrar</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEUAAACnej3aAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=" height="25" width="1">
-        </a>
-      </li>
-      <li class="nav-item">
-        
-                <img class="img-profile rounded-circle"
-                  src="https://thypix.com/wp-content/uploads/2022/04/komi-san-thypix-85-700x700.jpg"
-                  style="max-width: 40px" />
-                
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Komi-San - API</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        
-        <div class="info">
-          <a href="#" class="d-block"><i class="fas fa-fw fa-code"></i>ㅤDocumentos</a>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link nav-link active">
-                  <i class="fas fa-home nav-icon"></i>
-                  <p>Inicio</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="fas fa-user nav-icon"></i>
-                  <p>Perfil</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="fas fa-dollar-sign nav-icon"></i>
-                  <p>Comprar ApiKey</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="fas fa-cloud-upload-alt nav-icon"></i>
-                  <p>Cambios Del Api</p>
-                </a>
-              </li>
-<li class="brand-link" >
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-download"></i>
-              <p>
-                Descargar
-                <i class="fas fa-angle-left right"></i>
-                
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/api/yt/playmp3?query=op komi san&apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Play Mp3</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/yt/playmp4?query=op komi san&apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Play Mp4</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>YouTube Video</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>YouTube Video2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>YouTube Audio</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>YouTube Audio2</p>
-                </a>
-              </li>
-             <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Descargar Vid TikTok</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Descargar Vid TikTok2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Descargar Vid TikTok3</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Descargar Videos FB</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Descargar Videos FB2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Descargar Img Twitter</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Descargar Post Instagram</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Descargar Vid Twitter</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Descargar Docs Mediafire</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-footer.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Descargar Videos Smule</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Descargar Apps Apk</p>
-                </a>
-              </li>
-<li class="brand-link" >
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-search"></i>
-              <p>
-                Buscador
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buscar En YT</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buscar En Pinterest</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buscar Img Google</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buscar En Shoppe</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buscar En Spotify</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buscar Wallpaper</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buscar En Joox</p>
-                </a>
-              </li>
-        <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buscar En PornHub</p>
-                </a>
-              </li>
-         <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buscar En Xnxx</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buscar En Xvideos</p>
-                </a>
-              </li>
-            <li class="brand-link" >
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Creador De Imagen
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Icons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/buttons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Buttons</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/sliders.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sliders</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/modals.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Modals & Alerts</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/navbar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Navbar & Tabs</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/timeline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Timeline</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/UI/ribbons.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ribbons</p>
-                </a>
-              </li>
-            <li class="brand-link" >
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-fw fa-font"></i>
-              <p>
-                Text Pro
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/editors.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/validation.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
-                </a>
-              </li>
-          <li class="brand-link" >
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-image"></i>
-              <p>
-                Imagen Aleatoria
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/api/wallpaper/aesthetic?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Aesthetic</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/aesthetic?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fondo Aesthetic</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/anime?apikey=APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Anime Aesthetic</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/anime?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fondo Anime</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/kpop?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>K-POP</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/pubg?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pubg</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/trans?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Transformers</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/gaming?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Gaming</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/cyberspace?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Cyber Espacio</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/programing?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Programación</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/teknologi?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tecnologia</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/tatasurya?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Planeta</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/mountain?apikey=SU-APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Montañas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/satanic?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Satanico</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="https://restapi-production-ef0f.up.railway.app/api/wallpaper/kartun?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Cartoon</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/cogan2?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Chicos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/ppcouple?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Chicas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/katakata?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Frases</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/anjing?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Perros</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/kucing?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Gatos</p>
-                </a>
-              </li>
-<li class="brand-link" >
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-cat"></i>
-              <p>
-                Anime
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/api/wallpaper/waifu?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Waifu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/waifu2?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Waifu2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/loli?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Loli</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/wallpaper/shota?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Shota</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/random/cosplay?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Cosplay</p>
-                </a>
-              </li>
-             <li class="brand-link" >
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book-open"></i>
-              <p>
-                Manga
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/examples/invoice.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Invoice</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/profile.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Profile</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/e-commerce.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>E-commerce</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/projects.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Projects</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-add.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Add</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-edit.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Edit</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/project-detail.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Project Detail</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/contacts.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Contacts</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/faq.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>FAQ</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/examples/contact-us.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Contact us</p>
-                </a>
-              </li>
-             <li class="brand-link" >
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-exclamation-triangle"></i>
-              <p>
-                Nsfw
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/api/nsfw/hentai?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Hentai</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/gifs?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Hentai Gif</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/yuri?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Yuri</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/erotico?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Erotico</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/manga?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Manga Nsfw</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/loli?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Loli Nsfw</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/neko?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Neko Nsfw</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/pantis?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Bragas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/mamada?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Mamada</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/foot?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pies</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/orgia?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Orgia</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/pussy?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Coño</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/zettai?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tetas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/dominacionmasculina?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dominación Masculina</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/dominacionfemenina?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dominación Femenina</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/infiel?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Infiel</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/cum?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Semen</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/glasses?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Con Gafas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/jahy?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Jahy</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/masturbation?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Masturbación</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/tentacles?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tentaculos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/api/nsfw/aleatorio?apikey=SU_APIKEY" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Nsfw Aleatorio</p>
-                </a>
-              </li>
-           <li class="brand-link" >
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-bookmark"></i>
-              <p>
-                Otros
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/search/simple.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Search</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/search/enhanced.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Enhanced</p>
-                </a>
-              </li>
-            </ul>
-             <li class="nav-header brand-link" >
-          </li>
-          <li class="nav-header brand-link nav-icon fab fa-youtube" >ㅤREDES SOCIALES</li>
-          <li class="nav-item">
-            <a href="https://github.com/Android-Tec" class="nav-link">
-              <i class="nav-icon fab fa-github"></i>
-              <p>Git Hub</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://m.youtube.com/channel/UCC777Eegzmtgs_W7jllXmwQ" class="nav-link">
-              <i class="nav-icon fab fa-youtube"></i>
-              <p>YouTube</p>
-            </a>
-          </li>
-         <li class="nav-item">
-            <a href="https://api.whatsapp.com/send/?phone=51961928452&text=%F0%9F%91%8B&app_absent=0" class="nav-link">
-              <i class="nav-icon fab fa-whatsapp"></i>
-              <p>WhatsApp</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://chat.whatsapp.com/D23kwPycP7UEJL95RSY1jI" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>Grupo WhatsApp</p>
-            </a>
-          </li>
-<li class="nav-header brand-link" >
-         
-          </li>
-<div class="version2">ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤversion 3.0</div>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    
-
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header border-0">
-                <div class="flex justify-content-between">
-
-<center><h3><b>INFORMACIÓN 👨🏻‍💻</b></h3></center>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="d-flex">
-                  <p class="d-flex flex-column">
-
-          
-            <div id="browser_info"></div>
-                  </p
-                </div></div></div></div></div>
-
-            <!-- /.card -->
-
-            <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header border-0">
-                <div class="flex justify-content-between">
-                  <center><h3><b>BIENVENIDO 👋😄</b></h3></center>
-                 
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="flex">
-
-                    
-                    <h5><center>Hola bienvenido a mi api ☺ usalo de la mejor manera esta api es gratuita y esta dirigida para bots de whatsapp-discord-telegram.</center>
-                    <b>ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤAPIKEY : <a  href="#">Komi-San</a></h5></b>
-                  </p>
-                </div>
-</div>
-
-
-
-                
-            <!-- /.card -->
-          </div>
-           <!-- /.card -->
-            </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header border-0">
-                <div class="flex justify-content-between">
-                  <center><h3><b>VISITANTES 👀</b></h3></center>
-                 
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="flex">
-
-                    <center> <h2 class="mb-1" id="totalhit">0</h2></center>
-                    <h5><center>Total de vistas en la API 🥳🥳</center></h5>
-                    
-                  </p>
-                </div>
-</div>
-</div>
-           <!-- APIKEY -->
-<form action="/api/cekapikey">
-                <div class="card">
-              <div class="card-header border-0">
-<center><h3><b>VERIFICACIÓN DE APIKEYS 📝</b></h3></center>
-               
-              </div>
-              <div class="card-body">
-                <input type="password" class="form-control" placeholder="Ingrese su ApiKey" name="apikey" required=""><br>
-            <button class="btn btn-danger btn-icon-split">
-             <span class="icon text-dark">
-              <i class="fas fa-check"></i>
-             </span>
-             <span class="text">ㅤVerificar</span>
-            </button>
-                </div></div>
-      </form>
-            <!-- /.card -->
-
-            <div class="card">
-              <div class="card-header border-0">
-
-<center><h3><b>ESTADISTICAS 📈</b></h3></center>
-
-              </div>
-              <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-                  <p class="text-success text-xl">
-                    <i class="ion ion-eye"></i>
-                  </p>
-                  <p class="d-flex flex-column text-right">
-                    <span class="font-weight-bold">
-                      <i class="ion ion-android-arrow-up text-success"></i> 52%
-                    </span>
-                    <span class="text-muted">VISITAS API</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
-                <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-                  <p class="text-warning text-xl">
-                    <i class="ion ion-ios-cart"></i>
-                  </p>
-                  <p class="d-flex flex-column text-right">
-                    <span class="font-weight-bold">
-                      <i class="ion ion-android-arrow-up text-warning"></i> 6.8%
-                    </span>
-                    <span class="text-muted">APIS VENDIDAS</span>
-                  </p>
-                </div>
-                <!-- /.d-flex -->
-                <div class="d-flex justify-content-between align-items-center mb-0">
-                  <p class="text-danger text-xl">
-                    <i class="ion ion-android-download"></i>
-                  </p>
-                  <p class="d-flex flex-column text-right">
-                    <span class="font-weight-bold">
-                      <i class="ion ion-android-arrow-up text-danger"></i> 75.7%
-                    </span>
-                    <span class="text-muted">DESCARGAS DEL BOT</span>
-                  </p>
-                
-                </div></div></div>
-                <!-- /.d-flex -->
-<div class="card">
-              <div class="card-header border-0">
-<center><h3><b>ACTUALIZACIONES DEL BOT 🤖</b></h3></center>
-                <div class="card-tools">
-                  <a href="#" class="btn btn-sm btn-tool">
-                    <i class="fas fa-download"></i>
-                  </a>
-<a href="#" class="btn btn-sm btn-tool">
-                    <i class="fas fa-bars"></i>
-                  </a>
-                </div>
-              </div>
-<div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-              </div>
-              <div class="card-body">
-                BOT BETA
-                </div></div>
-                <!-- /.d-flex -->
-
-<div class="card">
-              <div class="card-header border-0">
-<center><h3><b>ACTUALIZACIONES API 💻</b></h3></center>
-                
-              </div>
-              <div class="card-body">
-                <h5><center>1-.Nuevo interfaz del API </center>
-                <center>2-.Mejora del rendimiento del API</center>
-                <center>3-.Respuesta mejorada</center></h5>                <!-- /.d-flex -->
-                </div></div></div>
-              
-           
-     
-          <!-- /.col-md-6 -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <center><footer class="main-footer">
-    
-    Copyright © 2022 <b><a href="https://chat.whatsapp.com/D23kwPycP7UEJL95RSY1jI"
-      target="_blank">Android Technology OFC</a></b>
-   
-  </footer></center>
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE -->
-<script src="dist/js/adminlte.js"></script>
-<!-- visitantes -->
-<script>
- var xhr = new XMLHttpRequest();
-            var url = 'https://api.countapi.xyz/hit/api-yogipw.herokuapp.co8m';
-            xhr.onloadend = function(){
-           data = JSON.parse(this.responseText);
-document.getElementById("totalhit").textContent = data.value
-            };
-            xhr.open("GET", url, true);
-            xhr.send();
-</script>
-<!-- info -->
-<script>
-
-              let arrBulan = [
-
-                "Enero",
-                "Febrero",
-                "Marzo",
-                "Abril",
-                "Mayo",
-                "Junio",
-                "Julio",
-                "Agosto",
-                "Setiembre",
-                "Octubre",
-                "Noviembre",
-                "Diciembre",
-              ];
-              let txt = "";
-              txt +=
-                "<p><b>Navegador Del Api </b>: " +
-                "Microsoft Edge" +
-                "</p>";
-              txt += "<p><b>Nombre Del Navegador </b>: " + "Edge+" + "</p>";
-              txt += "<p><b>Navegador En Linea </b>: " + navigator.onLine + "</p>";
-              txt +=
-                "<p><b>Cookies Activos </b>: " +
-                navigator.cookieEnabled +
-                "</p>";
-              txt += "<p><b>Plataforma </b>: " + navigator.platform + "</p>";
-              txt += "<p><b>Plataforma Del Api </b>: " + "Heroku-Render-Railway-GitHub" +"</p>";
-              txt += "<p><b>Agente De Usuario </b>: " + navigator.userAgent + "</p>";
-              let text_el = document.querySelector("div#browser_info");
-              setInterval(() => {
-                var d = new Date();
-                const jam = d.getHours().toString().padStart(2, 0);
-                const menit = d.getMinutes().toString().padStart(2, 0);
-                const detik = d.getSeconds().toString().padStart(2, 0);
-                const tgl = d.getDate();
-                const bln = d.getMonth();
-                const thn = d.getFullYear();
-                const bulan = arrBulan[bln];
-                text_el.innerHTML =
-                  txt +
-                  "<b>Fecha </b>: " +
-                  jam +
-                  ":" +
-                  menit +
-                  ":" +
-                  detik +
-                  "~" +
-                  tgl +
-                  "-" +
-                  bulan +
-                  "-" +
-                  thn +
-                  "<br>";
-              }, 250);
-            </script>
-<!-- OPTIONAL SCRIPTS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard3.js"></script>
+<hr>
+<div class="readdocs">
+<p>Entrar A <a href='/docs' class="docs">Docs</a></p>
 </body>
-</html>
+<style>
+@import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap);
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Ubuntu, sans-serif
+}
+
+html {
+    background: url(https://i.ibb.co/dcxmScN/komi.gif) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh
+}
+
+div.text {
+    position: absolute
+}
+
+div.text .status {
+    position: relative;
+    animation: animetop .8s
+}
+
+div.text .readdocs {
+    position: relative;
+    animation: animebot .8s;
+    text-align: center
+}
+
+@keyframes animetop {
+    0% {
+        top: -200px;
+        opacity: 0
+    }
+    100% {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animebot {
+    0% {
+        top: 200px;
+        opacity: 0
+    }
+    100% {
+        top: 0;
+        opacity: 1
+    }
+}
+
+p {
+    color: rgba(255,255,255,0.8);
+    letter-spacing: .15em;
+    font-size: 17px!important;
+    font-weight: 550
+}
+
+a {
+    text-decoration: none;
+    color: rgba(98,255,254,0.685)
+}
+
+a.sosmed {
+    color: rgba(255, 255, 255, .8)
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1)
+}
+
+.typed-text {
+    color: hsl(124.9,97.5%,51.6%)
+}
+
+.cursor {
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 1.5s steps(40, end), blink-caret .75s step-end infinite
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent
+    }
+    50% {
+        border-color: rgba(0,0,0,0.459)
+    }
+}
+
+hr {
+    margin: 10px auto;
+    position: relative;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 2px
+}
+
+div.bottom {
+    position: fixed;
+    left: 50%;
+    bottom: 50px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto
+}
+</style>
+<script type2="598913838d60437bd00c59b5-text/javascript">
+const typedTextSpan = document.querySelector(".typed-text"),
+    textArray = ["ONLINE", "ONLINE"],
+    typingDelay = 200,
+    erasingDelay = 100,
+    newTextDelay = 2e3;
+let textArrayIndex = 0,
+    charIndex = 0;
+
+function type() { charIndex < textArray[textArrayIndex].length ? (typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex), charIndex++, setTimeout(type, 200)) : setTimeout(erase, 2e3) }
+
+function erase() { charIndex > 0 ? (typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1), charIndex--, setTimeout(erase, 100)) : (textArrayIndex++, textArrayIndex >= textArray.length && (textArrayIndex = 0), setTimeout(type, 1300)) }
+document.addEventListener("DOMContentLoaded", (function() { setTimeout(type, 2250) }));
+
+$(document).ready((function() {
+    $(".changeprofile").submit((function(e) {
+        var formObj, formURL = $(this).attr("action"),
+            formData = new FormData(this);
+        $.ajax({ url: formURL, type: "POST", data: formData, contentType: !1, cache: !1, processData: !1, beforeSend: function() { $("button").attr("disabled", "disabled"), $("input").attr("disabled", "disabled"), $("a").attr("disabled", "disabled"), $(".inibutton").html('<i class="fas fa-spinner fa-spin"></i> Wait') }, success: function(data) { data.includes("Success") ? ($("button").removeAttr("disabled", "disabled"), $("a").removeAttr("disabled", "disabled"), $("input").removeAttr("disabled", "disabled"), $(".inibutton").html("Save"), $.notify({ icon: "tim-icons icon-check-2", message: data }, { type: "success", timer: 3e3, placement: { from: "top", align: "right" } }), window.location = window.location) : ($("button").removeAttr("disabled", "disabled"), $("a").removeAttr("disabled", "disabled"), $("input").removeAttr("disabled", "disabled"), $(".inibutton").html("Save"), $.notify({ icon: "tim-icons icon-simple-remove", message: data }, { type: "danger", timer: 3e3, placement: { from: "top", align: "right" } })) } }), e.preventDefault()
+    }))
+}))
+</script>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="598913838d60437bd00c59b5-|49" defer=""></script></html>
