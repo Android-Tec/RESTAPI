@@ -202,7 +202,7 @@ loghandler = {
         Estado: Error,
         Creator: `${creator}`,
         Codigo: 303,
-        Mensaje Del Api: Error ese APIKEY no existe contactese con el creador para haci comprar un APIKEY valido.
+        Mensaje: 'Error ese APIKEY no existe contactese con el creador para haci comprar un APIKEY valido.'
     },
     invalidlink: {
         status: false,
