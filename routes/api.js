@@ -7430,7 +7430,7 @@ router.get('/web2plain-text', async(req, res, next) => {
 });
 
 
-router.get('/cekapikey', async(req, res, next) => {
+router.get('/verificarapikey', async(req, res, next) => {
   const apikey = req.query.apikey;
   if(!apikey) return res.json(loghandler.notparam)
   if(listkey.includes(apikey)) {
