@@ -199,10 +199,10 @@ loghandler = {
         message: 'masukan parameter value'
     },
     invalidKey: {
-        Estado: error,
+        Estado:'Error',
         Creador: `${creator}`,
         Codigo: 202,
-        Mensaje: 'La APIKEY invalido contactese con el creador.'
+        Mensaje: 'La APIKEY es invalida contactese con el creador.'
     },
     invalidlink: {
         status: false,
@@ -227,7 +227,7 @@ Akhir Pesan Error
 
 //router.use(favicon(__path + "/views/favicon.ico"));
 
-const listkey = ["apirey", "APIKEY", "ditofficial"];
+const listkey = ["komi-san", "Komi-San", "KOMI-SAN","Android-Tec"];
 
 router.post("/apikey", async (req, res, next) => {
   const key = req.query.key;
