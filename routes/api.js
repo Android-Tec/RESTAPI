@@ -8,7 +8,7 @@ var zahirr = db.get("zahirr");
 	console.log('')  
 }
  
-var creator = "Rey"
+var creator = "Android Technology OFC"
 var neoxr = "yntkts"
 var zeks = "administrator"
 var zeks2 = "apivinz"
@@ -199,10 +199,10 @@ loghandler = {
         message: 'masukan parameter value'
     },
     invalidKey: {
-        Estado: 'Error'
-        Creator: `${creator}`
-        Codigo: '303'
-        Mensaje: 'Error ese APIKEY no existe contactese con el creador para haci comprar un APIKEY valido.'
+        status: false,
+        creator: `${creator}`,
+        code: 406,
+        message: 'apikey invalid'
     },
     invalidlink: {
         status: false,
