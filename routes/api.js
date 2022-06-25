@@ -76,7 +76,7 @@ var {
   Joox, 
   FB, 
   Tiktok
-} = require("./../lib/utils/download");
+} = require("./../lib/utils/downloader");
 
 var {
   Cuaca, 
@@ -482,7 +482,7 @@ router.get('/music/spotify', async(req, res, next) => {
   res.json(loghandler.invalidKey)
 }
 })
-router.get('/descargar/ytmp3', async(req, res, next) => {
+router.get('/download/ytmp3', async(req, res, next) => {
   const url = req.query.url;
   const apikey = req.query.apikey;
   if(!url) return res.json(loghandler.noturl)
@@ -506,7 +506,7 @@ router.get('/descargar/ytmp3', async(req, res, next) => {
     }
 });
 
-router.get('/descargar/ytmp4', async(req, res, next) => {
+router.get('/download/ytmp4', async(req, res, next) => {
   const url = req.query.url;
   const apikey = req.query.apikey;
 
@@ -595,7 +595,7 @@ router.get('/yt/search', async(req, res, next) => {
      }
 });
 
-router.get('/descargar/tiktok', async (req, res, next) => {
+router.get('/download/tiktok', async (req, res, next) => {
     var Apikey = req.query.apikey,
         url = req.query.url
 
@@ -620,7 +620,7 @@ router.get('/descargar/tiktok', async (req, res, next) => {
      }
 });
 
-router.get('/descargar/ig', async(req, res, next) => {
+router.get('/download/ig', async(req, res, next) => {
   const url = req.query.url;
   const apikey = req.query.apikey;
   if(!url) return res.json(loghandler.noturl)
@@ -643,7 +643,7 @@ router.get('/descargar/ig', async(req, res, next) => {
     }
 });
 
-router.get('/descargar/ig2', async(req, res, next) => {
+router.get('/download/ig2', async(req, res, next) => {
   const url = req.query.url;
   const apikey = req.query.apikey;
   if(!url) return res.json(loghandler.noturl)
@@ -666,7 +666,7 @@ router.get('/descargar/ig2', async(req, res, next) => {
     }
 });
 
-router.get('/descargar/stickerline', async(req, res, next) => {
+router.get('/download/stickerline', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -693,7 +693,7 @@ router.get('/descargar/stickerline', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/smule', async(req, res, next) => {
+router.get('/download/smule', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -720,7 +720,7 @@ router.get('/descargar/smule', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/joox3', async(req, res, next) => {
+router.get('/download/joox3', async(req, res, next) => {
   const apikey = req.query.apikey;
   const query = req.query.query;
   
@@ -747,7 +747,7 @@ router.get('/descargar/joox3', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/joox2', async(req, res, next) => {
+router.get('/download/joox2', async(req, res, next) => {
   const apikey = req.query.apikey;
   const query = req.query.query;
   
@@ -774,7 +774,7 @@ router.get('/descargar/joox2', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/apkdl', async(req, res, next) => {
+router.get('/download/apkdl', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -801,7 +801,7 @@ router.get('/descargar/apkdl', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/apk', async(req, res, next) => {
+router.get('/download/apk', async(req, res, next) => {
   const apikey = req.query.apikey;
   const query = req.query.query;
   
@@ -828,7 +828,7 @@ router.get('/descargar/apk', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/googleimg', async(req, res, next) => {
+router.get('/download/googleimg', async(req, res, next) => {
   const apikey = req.query.apikey;
   const query = req.query.query;
   
@@ -855,7 +855,7 @@ router.get('/descargar/googleimg', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/mediafire', async(req, res, next) => {
+router.get('/download/mediafire', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -936,7 +936,7 @@ router.get('/stalk/ig', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/wallpaperflare', async(req, res, next) => {
+router.get('/downloader/wallpaperflare', async(req, res, next) => {
   const apikey = req.query.apikey;
   const query = req.query.query;
   
@@ -963,7 +963,7 @@ router.get('/descargar/wallpaperflare', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/ytmp32', async(req, res, next) => {
+router.get('/download/ytmp32', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -990,7 +990,7 @@ router.get('/descargar/ytmp32', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/ytmp42', async(req, res, next) => {
+router.get('/download/ytmp42', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -1017,7 +1017,7 @@ router.get('/descargar/ytmp42', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/shoppe', async(req, res, next) => {
+router.get('/download/shoppe', async(req, res, next) => {
   const apikey = req.query.apikey;
   const q = req.query.q;
   
@@ -1125,7 +1125,7 @@ router.get('/primbon/artinama', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/unplash', async(req, res, next) => {
+router.get('/download/unplash', async(req, res, next) => {
   const apikey = req.query.apikey;
   const q = req.query.q;
   
@@ -1152,7 +1152,7 @@ router.get('/descargar/unplash', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/sticker', async(req, res, next) => {
+router.get('/download/sticker', async(req, res, next) => {
   const apikey = req.query.apikey;
   const q = req.query.q;
   
@@ -1179,7 +1179,7 @@ router.get('/descargar/sticker', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/xnxx', async(req, res, next) => {
+router.get('/downloader/xnxx', async(req, res, next) => {
   const apikey = req.query.apikey;
   const query = req.query.query;
   
@@ -1206,7 +1206,7 @@ router.get('/descargar/xnxx', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/twittervid', async(req, res, next) => {
+router.get('/downloader/twittervid', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -1233,7 +1233,7 @@ router.get('/descargar/twittervid', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/twitterimg', async(req, res, next) => {
+router.get('/downloader/twitterimg', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -1260,7 +1260,7 @@ router.get('/descargar/twitterimg', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/xvideos', async(req, res, next) => {
+router.get('/downloader/xvideo', async(req, res, next) => {
   const apikey = req.query.apikey;
   const query = req.query.query;
   
@@ -1287,7 +1287,7 @@ router.get('/descargar/xvideos', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/pornhub', async(req, res, next) => {
+router.get('/downloader/pornhub', async(req, res, next) => {
   const apikey = req.query.apikey;
   const query = req.query.query;
   
@@ -1314,7 +1314,7 @@ router.get('/descargar/pornhub', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/pinterest', async(req, res, next) => {
+router.get('/downloader/pinterest', async(req, res, next) => {
   const apikey = req.query.apikey;
   const q = req.query.q;
   
@@ -1341,7 +1341,7 @@ router.get('/descargar/pinterest', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/igtv', async(req, res, next) => {
+router.get('/downloader/igtv', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -1368,7 +1368,7 @@ router.get('/descargar/igtv', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/tiktok3', async(req, res, next) => {
+router.get('/download/tiktok3', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -1395,7 +1395,7 @@ router.get('/descargar/tiktok3', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/tiktok2', async(req, res, next) => {
+router.get('/download/tiktok2', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -1422,7 +1422,7 @@ router.get('/descargar/tiktok2', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/facebook2', async(req, res, next) => {
+router.get('/downloader/facebook2', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -1449,7 +1449,7 @@ router.get('/descargar/facebook2', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/facebook', async(req, res, next) => {
+router.get('/downloader/facebook', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
@@ -1476,7 +1476,7 @@ router.get('/descargar/facebook', async(req, res, next) => {
 }
 })
 
-router.get('/descargar/fb2', async (req, res, next) => {
+router.get('/downloader/fb2', async (req, res, next) => {
 
         var Apikey = req.query.apikey,
             url = req.query.url
@@ -1503,7 +1503,7 @@ res.json(loghandler.invalidKey)
 }
 });
 
-router.get('/descargar/fb', async (req, res, next) => {
+router.get('/downloader/fb', async (req, res, next) => {
 
   const url = req.query.url;
   const apikey = req.query.apikey;
@@ -2357,7 +2357,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/dominacionmasculina', async (req, res, next) => {
+router.get('/nsfw/bdsm', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2373,7 +2373,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/mamada', async (req, res, next) => {
+router.get('/nsfw/blowjob', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2389,7 +2389,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/infiel', async (req, res, next) => {
+router.get('/nsfw/cuckold', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2405,7 +2405,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/semen', async (req, res, next) => {
+router.get('/nsfw/cum', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2421,7 +2421,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/erotico', async (req, res, next) => {
+router.get('/nsfw/ero', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2437,7 +2437,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/dominacionfemenina', async (req, res, next) => {
+router.get('/nsfw/femdom', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2453,7 +2453,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/pies', async (req, res, next) => {
+router.get('/nsfw/foot', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2485,7 +2485,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/gafas', async (req, res, next) => {
+router.get('/nsfw/glasses', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2565,7 +2565,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/masturbacion', async (req, res, next) => {
+router.get('/nsfw/masturbation', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2597,7 +2597,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/orgia', async (req, res, next) => {
+router.get('/nsfw/orgy', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2613,7 +2613,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/bragas', async (req, res, next) => {
+router.get('/nsfw/panties', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2629,7 +2629,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/coño', async (req, res, next) => {
+router.get('/nsfw/pussy', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2661,7 +2661,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/tentaculos', async (req, res, next) => {
+router.get('/nsfw/tentacles', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2677,7 +2677,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/aleatorio', async (req, res, next) => {
+router.get('/nsfw/thighs', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -2709,7 +2709,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfw/tetas', async (req, res, next) => {
+router.get('/nsfw/zettai', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -4087,7 +4087,7 @@ res.json(loghandler.invalidKey)
 })
 
 
-router.get('/nsfw/loli', async (req, res, next) => {
+router.get('/wallpaper/loli', async (req, res, next) => {
         const Apikey = req.query.apikey;
 	if(!Apikey) return res.json(loghandler.notparam)
 	if(listkey.includes(Apikey)){
@@ -4204,7 +4204,7 @@ res.json(loghandler.invalidKey)
 }
 })
 
-router.get('/nsfwl/oli', async (req, res, next) => {
+router.get('/wallpaper/nsfwloli', async (req, res, next) => {
         var Apikey = req.query.apikey
             
 	if(!Apikey) return res.json(loghandler.notparam)
@@ -5409,7 +5409,7 @@ router.get('/textpro/hallowen-text', async(req, res, next) => {
   }
 });
 
-router.get('/textpro/luz-neon', async(req, res, next) => {
+router.get('/textpro/neon-light', async(req, res, next) => {
 
   const apikey = req.query.apikey;
 
@@ -5437,7 +5437,7 @@ router.get('/textpro/luz-neon', async(req, res, next) => {
   }
 });
 
-router.get('/textpro/vidrio-roto', async(req, res, next) => {
+router.get('/textpro/broken-glass', async(req, res, next) => {
 
   const apikey = req.query.apikey;
 
@@ -5973,7 +5973,7 @@ router.get('/textpro/larva', async(req, res, next) => {
   }
 });
 
-router.get('/textpro/toxico', async(req, res, next) => {
+router.get('/textpro/toxic-bokeh', async(req, res, next) => {
 
   const apikey = req.query.apikey;
 
@@ -6085,7 +6085,7 @@ router.get('/textpro/bread', async(req, res, next) => {
   }
 });
 
-router.get('/textpro/sangre2', async(req, res, next) => {
+router.get('/textpro/horor-blood', async(req, res, next) => {
 
   const apikey = req.query.apikey;
 
@@ -6367,7 +6367,7 @@ router.get('/textpro/hallowen', async(req, res, next) => {
   }
 });
 
-router.get('/textpro/sangre', async(req, res, next) => {
+router.get('/textpro/blood', async(req, res, next) => {
 
   const apikey = req.query.apikey;
 
@@ -6571,7 +6571,7 @@ router.get('/textpro/lion-logo', async(req, res, next) => {
   }
 });
 
-router.get('/textpro/vengadores-logo', async(req, res, next) => {
+router.get('/textpro/avengers-logo', async(req, res, next) => {
 
   const apikey = req.query.apikey;
 
@@ -6957,7 +6957,7 @@ router.get('/textpro/captain', async(req, res, next) => {
 @AKHIR TEXTPRO ME
 */
 
-router.get('/juegos/dado', async (req, res, next) => {
+router.get('/maker/dadu', async (req, res, next) => {
   Apikey = req.query.apikey;
 
   if(!Apikey) return res.json(loghandler.notparam)
@@ -7347,7 +7347,7 @@ router.get('/maker/tololserti', async(req, res, next) => {
     res.json(loghandler.invalidKey)
   }
 });
-router.get('/otros/emojiapng', async(req, res, next) => {
+router.get('/maker/emoji2png', async(req, res, next) => {
   const apikey = req.query.apikey;
   const Emoji = req.query.text;
   
@@ -7375,7 +7375,7 @@ router.get('/otros/emojiapng', async(req, res, next) => {
   }
 });
 
-router.get('/descargar/facebook2', async(req, res, next) => {
+router.get('/downloader/facebook2', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
   
