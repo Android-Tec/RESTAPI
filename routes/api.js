@@ -199,10 +199,10 @@ loghandler = {
         message: 'masukan parameter value'
     },
     invalidKey: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'apikey invalid'
+        Estado: Error,
+        Creador: `${creator}`,
+        Codigo: 406,
+        Mensaje: 'APIKEY invalido contactese con el creador.'
     },
     invalidlink: {
         status: false,
