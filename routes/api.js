@@ -199,9 +199,9 @@ loghandler = {
         message: 'masukan parameter value'
     },
     invalidKey: {
-        Estado: Error,
-        Creator: `${creator}`,
-        Codigo: 303,
+        Estado: 'Error'
+        Creator: `${creator}`
+        Codigo: '303'
         Mensaje: 'Error ese APIKEY no existe contactese con el creador para haci comprar un APIKEY valido.'
     },
     invalidlink: {
