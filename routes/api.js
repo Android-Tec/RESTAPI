@@ -7435,10 +7435,10 @@ router.get('/verificarapikey', async(req, res, next) => {
   if(!apikey) return res.json(loghandler.notparam)
   if(listkey.includes(apikey)) {
     res.json({
-      status: 'active',
-      creator: `${creator}`,
-      apikey: `${apikey}`,
-      message: 'APIKEY ACTIVE LIMIT 999'    
+      Estado: 'Activo',
+      Creador: `${creator}`,
+      Apikey: `${apikey}`,
+      Mensaje: 'APIKEY ACTIVO LIMITE AL DIA 999...'    
     })
   } else {
     res.json(loghandler.invalidKey)
