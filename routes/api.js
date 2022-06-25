@@ -201,7 +201,7 @@ loghandler = {
     invalidKey: {
         Estado:'Error',
         Creador: `${creator}`,
-        Codigo: 202,
+        Codigo:'202',
         Mensaje: 'La APIKEY es invalida contactese con el creador.'
     },
     invalidlink: {
