@@ -7317,7 +7317,7 @@ router.get('/canvas/bienvenido3', async(req, res, next) => {
   const bg = req.query.bg;
   const pp = req.query.pp;
   const gcicon = req.query.gcicon;
-  if(!name) return res.json(loghandler.notusername)
+  if(!name) return res.json(loghandler.name)
   if(!memberCount) return res.json(loghandler.memberCount)
   if(!gcname) return res.json(loghandler.gcname)
   if(!bg) return res.json(loghandler.bg)
