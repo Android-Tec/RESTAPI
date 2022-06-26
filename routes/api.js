@@ -530,7 +530,7 @@ router.get('/download/ytmp4', async(req, res, next) => {
     }
 });
 
-router.get("/yt/playmp3", async(req, res, next) => {
+router.get("/descargar/playmp3", async(req, res, next) => {
     const query = req.query.query;
     const apikey = req.query.apikey;
     
@@ -549,7 +549,7 @@ router.get("/yt/playmp3", async(req, res, next) => {
       }
 });
 
-router.get("/yt/playmp4", async(req, res, next) => {
+router.get("/descargar/playmp4", async(req, res, next) => {
 
     const query = req.query.query;
 
