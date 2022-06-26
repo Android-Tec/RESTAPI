@@ -7311,13 +7311,13 @@ router.get('/maker/skatch', async(req, res, next) => {
 });
 router.get('/canvas/bienvenido3', async(req, res, next) => {
   const apikey = req.query.apikey;
-  const name = req.query.name;
+  const username = req.query.username;
   const memberCount = req.query.memberCount;
   const gcname = req.query.gcname;
   const bg = req.query.bg;
   const pp = req.query.pp;
   const gcicon = req.query.gcicon;
-  if(!name) return res.json(loghandler.name)
+  if(!username) return res.json(loghandler.notusername)
   if(!memberCount) return res.json(loghandler.memberCount)
   if(!gcname) return res.json(loghandler.gcname)
   if(!bg) return res.json(loghandler.bg)
