@@ -7309,9 +7309,9 @@ router.get('/maker/skatch', async(req, res, next) => {
     res.json(loghandler.invalidKey)
   }
 });
-router.get('/canvas/welcome', async(req, res, next) => {
+router.get('/canvas/bienvenido3', async(req, res, next) => {
   const apikey = req.query.apikey;
-  const username = req.query.username;
+  const nombre = req.query.username;
   const memberCount = req.query.memberCount;
   const gcname = req.query.gcname;
   const bg = req.query.bg;
@@ -7325,7 +7325,7 @@ router.get('/canvas/welcome', async(req, res, next) => {
   if(!gcicon) return res.json(loghandler.gcicon)
   if(!apikey) return res.json(loghandler.notparam)
   if(listkey.includes(apikey)){
-  let hasil = `https://hadi-api.herokuapp.com/api/card/welcome3?username=${username}&memberCount=${memberCount}&bg=${bg}&pp=${pp}&gcicon=${gcicon}`
+  let hasil = `https://hadi-api.herokuapp.com/api/card/welcome3?username=${nombre}&gcname=${gcname}&memberCount=${memberCount}&bg=${bg}&pp=${pp}&gcicon=${gcicon}`
   data = await fetch(hasil).then(v => v.buffer())
          await fs.writeFileSync(__path +'/tmp/welcome.png', data)
         res.sendFile(__path+'/tmp/welcome.png')
