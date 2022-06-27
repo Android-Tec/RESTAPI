@@ -7311,7 +7311,7 @@ router.get('/maker/skatch', async(req, res, next) => {
 });
 router.get('/canvas/bienvenido', async(req, res, next) => {
   const apikey = req.query.apikey;
-  const name = req.query.nombre;
+  const name = req.query.username;
   const mem = req.query.memberCount;
   const gcname = req.query.gcname;
   const picurl = req.query.bg;
