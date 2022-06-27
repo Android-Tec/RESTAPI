@@ -6,6 +6,9 @@ var router = express.Router();
 router.get('/docs', (req, res) => {
     res.sendFile(__path + '/views/docs-1.html')
 })
+router.get('/perfil', (req, res) => {
+    res.sendFile(__path + '/views/perfil.html')
+})
 router.get('/', (req, res) => {
     res.sendFile(__path + '/views/docs.html')
 })
