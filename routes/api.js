@@ -7311,16 +7311,16 @@ router.get('/maker/skatch', async(req, res, next) => {
 });
 router.get('/canvas/bienvenido', async(req, res, next) => {
   const apikey = req.query.apikey;
-  const name = req.query.username;
+  const name = req.query.nombre;
   const mem = req.query.memberCount;
   const gcname = req.query.gcname;
   const picurl = req.query.bg;
   const bgurl = req.query.pp;  
-  if(!name) return res.json(loghandler.notuername)
-  if(!mem) return res.json(loghandler.memberCount)
+  if(!name) return res.json(loghandler.name)
+  if(!mem) return res.json(loghandler.mem)
   if(!gcname) return res.json(loghandler.gcname)
-  if(!picurl) return res.json(loghandler.bg)
-  if(!bgurl) return res.json(loghandler.pp)
+  if(!picurl) return res.json(loghandler.picurl)
+  if(!bgurl) return res.json(loghandler.bgurl)
   if(!apikey) return res.json(loghandler.notparam)
   if(listkey.includes(apikey)){
   let hasil = `https://api-yogipw.herokuapp.com/api/welcome?name=${name}&mem=${mem}&gcname=${gcname}&picurl=${picurl}&bgurl=${bgurl}`
