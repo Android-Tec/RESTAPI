@@ -7314,8 +7314,8 @@ router.get('/canvas/bienvenido', async(req, res, next) => {
   const name = req.query.username;
   const mem = req.query.memberCount;
   const gcname = req.query.gcname;
-  const picurl = req.query.bg;
-  const bgurl = req.query.pp;  
+  const bgurl = req.query.bg;
+  const picurl = req.query.pp;  
   if(!name) return res.json(loghandler.name)
   if(!mem) return res.json(loghandler.mem)
   if(!gcname) return res.json(loghandler.gcname)
