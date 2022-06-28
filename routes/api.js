@@ -192,6 +192,12 @@ loghandler = {
         code: 406,
         message: 'masukan parameter username'
     },
+  notnombre: {
+        status: false,
+        creator: `${creator}`,
+        code: 406,
+        message: 'masukan parameter username'
+    },
     notvalue: {
         status: false,
         creator: `${creator}`,
@@ -7311,7 +7317,7 @@ router.get('/maker/skatch', async(req, res, next) => {
 });
 router.get('/canvas/bienvenido', async(req, res, next) => {
   const apikey = req.query.apikey;
-  const name = req.query.username;
+  const name = req.query.nombre;
   const mem = req.query.memberCount;
   const gcname = req.query.gcname;
   const bgurl = req.query.bg;
