@@ -193,10 +193,10 @@ loghandler = {
         message: 'masukan parameter username'
     },
   notnombre: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukan parameter username'
+        Estado: 'Error',
+        Credor: `${creator}`,
+        Codigo: '303',
+        Mensaje: 'ingrese el nombre 😑'
     },
     notvalue: {
         status: false,
@@ -7322,7 +7322,7 @@ router.get('/canvas/bienvenido', async(req, res, next) => {
   const gcname = req.query.gcname;
   const bgurl = req.query.bg;
   const picurl = req.query.pp;  
-  if(!name) return res.json(loghandler.name)
+  if(!name) return res.json(loghandler.notnombre)
   if(!mem) return res.json(loghandler.mem)
   if(!gcname) return res.json(loghandler.gcname)
   if(!picurl) return res.json(loghandler.picurl)
