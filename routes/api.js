@@ -132,6 +132,32 @@ loghandler = {
         code: 406,
         message: 'masukkan paramer pp'
         },
+        notfondo: {
+
+        Estado: false,
+
+        Creador: `${creator}`,
+        Codigo: '303',
+        Mensaje: 'Ingrese el link de la imagen del fondo 😶.'
+        },
+       notperfil: {
+        Estado: false,
+        Creador: `${creator}`,
+        Codigo: '303',
+        Mensaje: 'Ingrese el link de la imagen del perfil 😶.'
+        },
+        notmiembros: {
+        Estado: false,
+        Creador: `${creator}`,
+        Codigo: '303',
+        Mensaje: 'Ingrese la cantidad de miembros 😶.'
+        },
+        notgpnombre: {
+        Estado: false,
+        Creador: `${creator}`,
+        Codigo: '303',
+        Mensaje: 'Ingrese el nombre del grupo 😶.'
+        },
     notbg: {
         status: false,
         creator: `${creator}`,
@@ -7318,15 +7344,15 @@ router.get('/maker/skatch', async(req, res, next) => {
 router.get('/canvas/bienvenido', async(req, res, next) => {
   const apikey = req.query.apikey;
   const name = req.query.nombre;
-  const mem = req.query.memberCount;
-  const gcname = req.query.gcname;
-  const bgurl = req.query.bg;
-  const picurl = req.query.pp;  
+  const mem = req.query.mienbros;
+  const gcname = req.query.gpnombre;
+  const bgurl = req.query.fondo;
+  const picurl = req.query.perfil;  
   if(!name) return res.json(loghandler.notnombre)
-  if(!mem) return res.json(loghandler.mem)
-  if(!gcname) return res.json(loghandler.gcname)
-  if(!picurl) return res.json(loghandler.picurl)
-  if(!bgurl) return res.json(loghandler.bgurl)
+  if(!mem) return res.json(loghandler.notmienbros)
+  if(!gcname) return res.json(loghandler.notgpnombre)
+  if(!picurl) return res.json(loghandler.notperfil)
+  if(!bgurl) return res.json(loghandler.notfondo)
   if(!apikey) return res.json(loghandler.notparam)
   if(listkey.includes(apikey)){
   let hasil = `https://api-yogipw.herokuapp.com/api/welcome?name=${name}&mem=${mem}&gcname=${gcname}&picurl=${picurl}&bgurl=${bgurl}`
