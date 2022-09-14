@@ -103,100 +103,100 @@ var cookie = process.env.COOCKIE
 */
 loghandler = {
     notparam: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukan parameter apikey'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'Requiere el una APIKEY'
     },
     noturl: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukan parameter url'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'Requiere una URL'
     },
     notgcname: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukkan paramer gcname'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'Requiere nombre del grupo'
         },
     notgcicon: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukkan paramer gcicon'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'Requiere Url foto del grupo'
         },
     notpp: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukkan paramer pp'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'Requiere Url imagen del usuario'
         },
     notbg: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukkan paramer bg'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'Requiere Url imagen de fondo'
         },
     notmemberCount: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukkan paramer memberCount'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'Requiere numero de integrantes del grupo'
         },
     notquery: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukkan parameter query'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'Require el parametro query'
         },
     notkata: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukan parameter kata'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'masukan parameter kata'
     },
     nottext: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukan parameter text'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'Require el parametro text'
     },
     nottext2: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukan parameter text2'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'Require el parametro text2'
     },
     notnabi: {
-        status: false,
-        creator: `${creator}`,
-        code: 406, 
-        message: 'masukan parameter nabi'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303, 
+        Mensaje: 'masukan parameter nabi'
     },
     nottext3: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukan parameter text3'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'Require el parametro text3'
     },
     nottheme: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukan parameter theme'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'masukan parameter theme'
     },
     notusername: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukan parameter username'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'Require el parametro usuario'
     },
     notvalue: {
-        status: false,
-        creator: `${creator}`,
-        code: 406,
-        message: 'masukan parameter value'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Codigo: 303,
+        Mensaje: 'masukan parameter value'
     },
     invalidKey: {
         Estado:'Error',
@@ -205,19 +205,19 @@ loghandler = {
         Mensaje: 'La APIKEY es invalida contactese con el creador.'
     },
     invalidlink: {
-        status: false,
-        creator: `${creator}`,
-        message: 'error, mungkin link anda tidak valid.'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Mensaje: 'error, mungkin link anda tidak valid.'
     },
     invalidkata: {
-        status: false,
-        creator: `${creator}`,
-        message: 'error, mungkin kata tidak ada dalam api.'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Mensaje: 'error, mungkin kata tidak ada dalam api.'
     },
     error: {
-        status: false,
-        creator: `${creator}`,
-        message: '404 ERROR'
+        Estado:  'Error',
+        Creador: `${creator}`,
+        Mensaje: '404 ERROR'
     }
 }
 
@@ -225,7 +225,7 @@ loghandler = {
 Akhir Pesan Error
 */
 
-//router.use(favicon(__path + "/views/favicon.ico"));
+//router.use(favicon(__path + "url"));
 
 const listkey = ["komi-san", "Komi-San", "KOMI-SAN","Android-Tec"];
 
@@ -233,12 +233,12 @@ router.post("/apikey", async (req, res, next) => {
   const key = req.query.key;
   if(listkey.includes(key)) {
     res.json({
-      message: 'apikey sudah terdaftar'
+      Mensaje: 'Apikey ya registrado'
     });
   } else {
     listkey.push(key);
     res.json({
-      message: `berhasil mendaftarkan ${key} Kedatabase apikey`
+      Mensaje: `berhasil mendaftarkan ${key} Kedatabase apikey`
     });
   }
 });
@@ -249,12 +249,12 @@ router.delete("/apikey", async(req, res, next) => {
 	const key = req.query.delete;
 	if(listkey.includes(key)) {
 		res.json({
-			message: 'apikey tidak ada sebelumnya'
+			Mensaje: 'apikey tidak ada sebelumnya'
 			})
 			} else {
 	listkey.splice(key, 1)
 	res.json({
-		message: 'apikey berhasil dihapus' 
+		Mensaje: 'apikey berhasil dihapus' 
 });
  }
 });
@@ -491,9 +491,9 @@ router.get('/download/ytmp3', async(req, res, next) => {
   ytDonlodMp3(url)
     .then((result) => {
       res.json({
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result
       })
     })
@@ -516,9 +516,9 @@ router.get('/download/ytmp4', async(req, res, next) => {
   ytDonlodMp4(url)
     .then((result) => {
       res.json({
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result
       })
     })
@@ -581,9 +581,9 @@ router.get('/yt/search', async(req, res, next) => {
     ytSearch(query)
         .then((result) => {
             res.json({
-              status: true,
+              Estado: true,
               code: 200,
-              creator: `${creator}`,
+              Creador: `${creator}`,
               result
             })
         })
@@ -606,9 +606,9 @@ router.get('/download/tiktok', async (req, res, next) => {
         .then(data => {
         var result = data.result;
              res.json({
-               status: true,
+               Estado: true,
                code: 200,
-               creator: `${creator}`,
+               Creador: `${creator}`,
                result
              })
          })
@@ -629,9 +629,9 @@ router.get('/download/ig', async(req, res, next) => {
   igDownloader(url)
     .then((result) => {
       res.json({
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result
       })
     })
@@ -652,9 +652,9 @@ router.get('/download/ig2', async(req, res, next) => {
   igdl(url)
     .then((result) => {
       res.json({
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result
       })
     })
@@ -1488,9 +1488,9 @@ router.get('/downloader/fb2', async (req, res, next) => {
        FB(url)
        .then((data) => {
          res.json({
-           status: true,
+           Estado: true,
            code: 200,
-           creator: `${creator}`,
+           Creador: `${creator}`,
            title: data.title,
            desc: data.deskripsi,
            durasi: data.durasi,
@@ -1513,9 +1513,9 @@ router.get('/downloader/fb', async (req, res, next) => {
        fbDownloader(`${url}`)
        .then((result) => {
             res.json({
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result
       })
     })
@@ -1753,8 +1753,8 @@ Axios.get('https://jadwalnonton.com/now-playing')
           })
      }
      res.json({
-     creator:  `${creator}`,
-     status: true,
+     Creador:  `${creator}`,
+     Estado: true,
      result: result
      })
 })
@@ -1794,13 +1794,13 @@ router.get('/base', async (req, res, next) => {
 		Apikey = req.query.apikey;
 		if (!Apikey) return res.json(loghandler.notparam)
 		if (listkey.includes(Apikey)){
-		if (!type) return res.json({status: false, creator, code: 404, message: 'masukan parameter type, type yang tersedia : base64 , base32'})
+		if (!type) return res.json({Estado:  'Error', creator, code: 404, Mensaje: 'masukan parameter type, type yang tersedia : base64 , base32'})
 		if (type == 'base64' && encode){
 				Base("b64enc", encode)
 				.then(result => {
 					res.json({
-						status:true,
-						creator: `${creator}`,
+						Estado:true,
+						Creador: `${creator}`,
 						result
 					})
 				})
@@ -1808,8 +1808,8 @@ router.get('/base', async (req, res, next) => {
 				Base("b64dec", decode)
 				.then(result => {
 					res.json({
-						status: true,
-						creator: `${creator}`,
+						Estado: true,
+						Creador: `${creator}`,
 						result
 					})
 				})
@@ -1817,8 +1817,8 @@ router.get('/base', async (req, res, next) => {
 				Base('b32enc', encode)
 				.then(result => {
 					res.json({
-						status:true,
-						creator: `${creator}`,
+						Estado:true,
+						Creador: `${creator}`,
 						result
 					})
 				})
@@ -1826,16 +1826,16 @@ router.get('/base', async (req, res, next) => {
 				Base('b32dec', decode)
 				.then(result => {
 					res.json({
-						status:true,
-						creator: `${creator}`,
+						Estado:true,
+						Creador: `${creator}`,
 						result
 					})
 				})
 			} else if(!(encode || decode)){
 				res.json({
-					status:false,
-					creator: `${creator}`,
-					message: "tambahkan parameter encode/decode"
+					Estado:false,
+					Creador: `${creator}`,
+					Mensaje: "tambahkan parameter encode/decode"
 				})
 			} else {
 				res.json(loghandler.error)
@@ -1867,7 +1867,7 @@ router.get('/info/cuaca', async(req, res, next) => {
   const kota = req.query.kota;
   
   if(!apikey) return res.json(loghandler.notparam)
-  if(!kota) return res.json({status: false, code: 406, message: 'masukkan parameter kota'})
+  if(!kota) return res.json({Estado:  'Error', Codigo: 303, Mensaje: 'masukkan parameter kota'})
   if(listkey.includes(apikey)) {
     Cuaca(kota)
     .then((data) => {
@@ -1885,7 +1885,28 @@ router.get('/info/gempa', async (req, res, next) => {
 		Gempa()
 		.then(result => {
 			res.json({
-				creator: creator,
+				Creador: creator,
+				result
+			})
+		})
+		.catch(e => {
+			console.log('Error :', color(e, 'red'))
+			res.json(loghandler.error)
+		})
+	} else {
+res.json(loghandler.invalidKey)
+}
+})
+router.get('/servidores/ehibitel', async (req, res, next) => {
+	var nabi = req.query.nabi,
+		Apikey = req.query.apikey;
+
+		if (!Apikey) return res.json(loghandler.notparam)
+		if (listkey.includes(Apikey)){
+		Searchnabi(nabi)
+		.then(result => {
+			res.json({
+				Creador: cjcjc,
 				result
 			})
 		})
@@ -1898,7 +1919,6 @@ res.json(loghandler.invalidKey)
 }
 })
 
-
 router.get('/muslim/kisahnabi', async (req, res, next) => {
 	var nabi = req.query.nabi,
 		Apikey = req.query.apikey;
@@ -1908,7 +1928,7 @@ router.get('/muslim/kisahnabi', async (req, res, next) => {
 		Searchnabi(nabi)
 		.then(result => {
 			res.json({
-				creator: creator,
+				Creador: creator,
 				result
 			})
 		})
@@ -2311,9 +2331,9 @@ router.get('/search/image', async(req, res, next) => {
             if (!cari.length) return
             var hasil = cari[Math.floor(Math.random() * cari.length)]
         res.json({
-              status: true,
+              Estado: true,
               code: 200,
-              creator: `${creator}`,
+              Creador: `${creator}`,
               result: hasil
             })
         })
@@ -4598,9 +4618,9 @@ router.get('/music/liriklagu', async (req, res, next) => {
         Lirik(lagu)
         .then((lirik) => {
           res.json({
-            status: true,
+            Estado: true,
             code: 200,
-            creator: `${creator}`,
+            Creador: `${creator}`,
             result: lirik.data
           })
         });
@@ -4822,9 +4842,9 @@ router.get('/anime/loli', async(req, res, next) => {
             if (!cari.length) return
             var hasil = cari[Math.floor(Math.random() * cari.length)]
         res.json({
-              status: true,
+              Estado: true,
               code: 200,
-              creator: `${creator}`,
+              Creador: `${creator}`,
               result: hasil
             })
         })
@@ -4888,9 +4908,9 @@ router.get('/kuis/tebakGambar', async (req, res, next) => {
   let result = await tebakGambar()
   if (result) {
     const hasil = {
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       image: result.img,
       jawaban: result.jawaban,
       clue: result.petunjuk
@@ -4898,7 +4918,7 @@ router.get('/kuis/tebakGambar', async (req, res, next) => {
     res.json(hasil)
   } else {
     return res.status(408).json({
-      status: res.statusCode,
+      Estado: res.statusCode,
       error: 'Emror'
     })
   }
@@ -4922,9 +4942,9 @@ router.get("/photooxy/shadow", async(req, res, next) => {
   pShadow(text1)
     .then((data) => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: data.url
       }
       res.json(result)
@@ -4946,9 +4966,9 @@ router.get("/photooxy/romantic", async(req, res, next) => {
   pRomantic(text1)
     .then((data) => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: data.url
       }
       res.json(result)
@@ -4972,9 +4992,9 @@ router.get("/photooxy/smoke", async(req, res, next) => {
   pSmoke(text1)
     .then((data) => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: data.url
       }
       res.json(result)
@@ -4996,9 +5016,9 @@ router.get("/photooxy/burn-papper", async(req, res, next) => {
   pBurnPapper(text1)
     .then((data) => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: data.url
       }
       res.json(result)
@@ -5020,9 +5040,9 @@ router.get("/photooxy/naruto", async(req, res, next) => {
   pNaruto(text1)
     .then((data) => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: data.url
       }
       res.json(result)
@@ -5044,9 +5064,9 @@ router.get("/photooxy/love-message", async(req, res, next) => {
   pLoveMsg(text1)
     .then((data) => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: data.url
       }
       res.json(result)
@@ -5068,9 +5088,9 @@ router.get("/photooxy/message-under-grass", async(req, res, next) => {
   pMsgGrass(text1)
     .then((data) => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: data.url
       }
       res.json(result)
@@ -5094,9 +5114,9 @@ router.get("/photooxy/glitch", async(req, res, next) => {
   pGlitch(text1, text2)
     .then((data) => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: data.url
       }
       res.json(result)
@@ -5118,9 +5138,9 @@ router.get("/photooxy/double-heart", async(req, res, next) => {
   pDoubleHeart(text1)
     .then((data) => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: data.url
       }
       res.json(result)
@@ -5142,9 +5162,9 @@ router.get("/photooxy/coffe-cup", async(req, res, next) => {
   pCoffeCup(text1)
     .then((data) => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: data.url
       }
       res.json(result)
@@ -5166,9 +5186,9 @@ router.get("/photooxy/love-text", async(req, res, next) => {
   pLoveText(text1)
     .then((data) => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: data.url
       }
       res.json(result)
@@ -5190,9 +5210,9 @@ router.get("/photooxy/butterfly", async(req, res, next) => {
   pButterfly(text1)
   .then((data) => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: data.url
       }
       res.json(result)
@@ -5227,9 +5247,9 @@ router.get('/photooxy/army', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5255,9 +5275,9 @@ router.get('/textpro/logo-wolf', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5283,9 +5303,9 @@ router.get('/textpro/natural-leaves', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5313,9 +5333,9 @@ router.get('/textpro/logo-wolf2', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5341,9 +5361,9 @@ router.get('/textpro/harry-potter', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5369,9 +5389,9 @@ router.get('/textpro/magma', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5397,9 +5417,9 @@ router.get('/textpro/hallowen-text', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5425,9 +5445,9 @@ router.get('/textpro/neon-light', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5453,9 +5473,9 @@ router.get('/textpro/broken-glass', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5481,9 +5501,9 @@ router.get('/textpro/art-papper', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5509,9 +5529,9 @@ router.get('/textpro/glossy', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5537,9 +5557,9 @@ router.get('/textpro/water-color', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5565,9 +5585,9 @@ router.get('/textpro/multi-color', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5593,9 +5613,9 @@ router.get('/textpro/neon-devil', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5621,9 +5641,9 @@ router.get('/textpro/sky-text', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5649,9 +5669,9 @@ router.get('/textpro/luxury', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5679,9 +5699,9 @@ router.get('/textpro/vintage', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5707,9 +5727,9 @@ router.get('/textpro/writing', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5735,9 +5755,9 @@ router.get('/textpro/engraved', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5763,9 +5783,9 @@ router.get('/textpro/glue-text', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5791,9 +5811,9 @@ router.get('/textpro/minios', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5821,9 +5841,9 @@ router.get('/textpro/pornhub', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5849,9 +5869,9 @@ router.get('/textpro/holograpic', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5877,9 +5897,9 @@ router.get('/textpro/deluxe-silver', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5905,9 +5925,9 @@ router.get('/textpro/fabric', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5933,9 +5953,9 @@ router.get('/textpro/wicker', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5961,9 +5981,9 @@ router.get('/textpro/larva', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -5989,9 +6009,9 @@ router.get('/textpro/toxic-bokeh', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6017,9 +6037,9 @@ router.get('/textpro/stroberi', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6045,9 +6065,9 @@ router.get('/textpro/koi', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6073,9 +6093,9 @@ router.get('/textpro/bread', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6101,9 +6121,9 @@ router.get('/textpro/horor-blood', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6129,9 +6149,9 @@ router.get('/textpro/honey', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6157,9 +6177,9 @@ router.get('/textpro/ice', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6185,9 +6205,9 @@ router.get('/textpro/rusty', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6213,9 +6233,9 @@ router.get('/textpro/3dstone', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6241,9 +6261,9 @@ router.get('/textpro/1917', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6269,9 +6289,9 @@ router.get('/textpro/thunder2', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6299,9 +6319,9 @@ router.get('/textpro/space', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6327,9 +6347,9 @@ router.get('/textpro/joker-logo', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6355,9 +6375,9 @@ router.get('/textpro/hallowen', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6383,9 +6403,9 @@ router.get('/textpro/blood', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6411,9 +6431,9 @@ router.get('/textpro/thunder2', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6441,9 +6461,9 @@ router.get('/textpro/astone', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6469,9 +6489,9 @@ router.get('/textpro/grafity-text', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6499,9 +6519,9 @@ router.get('/textpro/grafity-text2', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6529,9 +6549,9 @@ router.get('/textpro/ninja-logo', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6559,9 +6579,9 @@ router.get('/textpro/lion-logo', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6589,9 +6609,9 @@ router.get('/textpro/avengers-logo', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6619,9 +6639,9 @@ router.get('/textpro/marvel-logo2', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6649,9 +6669,9 @@ router.get('/textpro/marvel-logo', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6679,9 +6699,9 @@ router.get('/textpro/glitch2', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6709,9 +6729,9 @@ router.get('/textpro/logo-wolf', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6739,9 +6759,9 @@ router.get('/textpro/logo-wolf', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6769,9 +6789,9 @@ router.get('/textpro/thunder', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6797,9 +6817,9 @@ router.get('/textpro/black-pink', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6827,9 +6847,9 @@ router.get('/textpro/drop-water', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6855,9 +6875,9 @@ router.get('/textpro/christmas', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6881,9 +6901,9 @@ router.get('/textpro/3d-gradient', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6911,9 +6931,9 @@ router.get('/textpro/porn-hub', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -6941,9 +6961,9 @@ router.get('/textpro/captain', async(req, res, next) => {
   ])
   .then((data) => {
     res.json({
-      status: true,
+      Estado: true,
       code: 200,
-      creator: `${creator}`,
+      Creador: `${creator}`,
       result: data
     })
   })
@@ -7294,7 +7314,6 @@ router.get('/maker/harta-tahta', async(req, res, next) => {
     res.json(loghandler.invalidKey)
   }
 });
-
 router.get('/maker/skatch', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
@@ -7314,13 +7333,13 @@ router.get('/canvas/bienvenido', async(req, res, next) => {
   const name = req.query.username;
   const mem = req.query.memberCount;
   const gcname = req.query.gcname;
-  const picurl = req.query.bg;
-  const bgurl = req.query.pp;  
-  if(!name) return res.json(loghandler.notusername)
-  if(!mem) return res.json(loghandler.memberCount)
+  const bgurl = req.query.bg;
+  const picurl = req.query.pp;  
+  if(!name) return res.json(loghandler.name)
+  if(!mem) return res.json(loghandler.mem)
   if(!gcname) return res.json(loghandler.gcname)
-  if(!picurl) return res.json(loghandler.bg)
-  if(!bgurl) return res.json(loghandler.pp)
+  if(!picurl) return res.json(loghandler.picurl)
+  if(!bgurl) return res.json(loghandler.bgurl)
   if(!apikey) return res.json(loghandler.notparam)
   if(listkey.includes(apikey)){
   let hasil = `https://api-yogipw.herokuapp.com/api/welcome?name=${name}&mem=${mem}&gcname=${gcname}&picurl=${picurl}&bgurl=${bgurl}`
@@ -7381,9 +7400,9 @@ router.get('/maker/emoji2png', async(req, res, next) => {
     emoji.get(Emoji)
     .then(img_emoji => {
       const result = {
-        status: true,
+        Estado: true,
         code: 200,
-        creator: `${creator}`,
+        Creador: `${creator}`,
         result: img_emoji.images[0].url
       }
       res.json(result)
@@ -7410,9 +7429,9 @@ router.get('/downloader/facebook2', async(req, res, next) => {
         .then(data => {
         var result = data;
              res.json({
-               status: true,
+               Estado: true,
                code: 200,
-               creator: `${creator}`,
+               Creador: `${creator}`,
                  result
              })
          })
@@ -7437,9 +7456,9 @@ router.get('/web2plain-text', async(req, res, next) => {
         .then(data => {
         var result = data;
              res.json({
-               status: true,
+               Estado: true,
                code: 200,
-               creator: `${creator}`,
+               Creador: `${creator}`,
                  result
              })
          })
