@@ -1906,8 +1906,8 @@ router.get('/servidores/ehibitel', async (req, res, next) => {
 		Searchnabi(nabi)
 		.then(result => {
 			res.json({
-				Creador: cjcjc,
-				result
+				Creador: 'cjcjc',
+				
 			})
 		})
 		.catch(e => {
