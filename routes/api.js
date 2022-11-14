@@ -7451,7 +7451,6 @@ router.get('/web2plain-text', async(req, res, next) => {
   }
 });
 
-
 router.get('/verificar-apikey', async(req, res, next) => {
   const apikey = req.query.apikey;
   if(!apikey) return res.json(loghandler.notparam)
@@ -7461,6 +7460,20 @@ router.get('/verificar-apikey', async(req, res, next) => {
       Creador: `${creator}`,
       Apikey: `${apikey}`,
       Mensaje: 'APIKEY ACTIVO LIMITE AL DIA 999...'    
+    })
+  } else {
+    res.json(loghandler.invalidKey)
+  }
+})
+
+router.get('/actualizaciones/bots', async(req, res, next) => {
+  const apikey = req.query.apikey;
+  if(!apikey) return res.json(loghandler.notparam)
+  if(listkey.includes(apikey)) {
+    res.json({
+      Estado: 'Activo',
+      Creador: `${creator}`,
+      Mensaje: 'Estas en la ultima actualización de Ruka-Chan Bot'    
     })
   } else {
     res.json(loghandler.invalidKey)
