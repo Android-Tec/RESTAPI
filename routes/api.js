@@ -7295,26 +7295,6 @@ router.get('/maker/harta-tahta', async(req, res, next) => {
   }
 });
 
-router.get('/servidores/ehibitel', async(req, res, next) => {
-  const text = req.query.text;
-  const apikey = req.query.apikey;
-  
-  if(!text) return res.json(loghandler.nottext)
-  if(!apikey) return res.json(loghandler.notparam)
-  
-var result = hasil.data;
-             res.json({
-                 jjj
-             })
-         })
-         .catch(e => {
-         	res.json(loghandler.error)
-})
-} else {
-  res.json(loghandler.invalidKey)
-}
-})
-
 router.get('/maker/skatch', async(req, res, next) => {
   const apikey = req.query.apikey;
   const url = req.query.url;
